@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block pagetitle %} {{post.post_name}}{% endblock  %}
+{% block cssstyle %}
+<link rel='stylesheet' href='{% static "blog/allpost.css" %}'>
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div>        
+    <a href='{% url "home" %}'>Back To The Home Page</a>
+<br>
+
+{% comment %} <h1>{{posts.post_name}}</h1> {% endcomment %}
+{% comment %} {% for post in posts  %} {% endcomment %}
+
+<h1 class='text1'><u>{{posts.post_name}}</u></h1>
+<br>
+<img src="{{posts.image.url}}" alt="..." height='350px' width='500px'>
+<img src="{{posts.imagesecond.url}}" alt="..." height='350px' width='490px'>
+<img src="{{posts.imagethird.url}}" alt="..." height='350px' width='490px'>
+
+<br>
+<p class='text'>{{posts.extract}}</p>
+<br>
+<p class='text'>{{posts.content}}</p>
+<hr>
+
+{% comment %} {% endfor %} {% endcomment %}
+
+    </div>
+</section>
+
+{% endblock %}

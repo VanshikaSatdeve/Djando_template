@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block pagetitle %}List of the month{% endblock  %}
+{% block cssstyle %}
+{% endblock  %}
+{% block content %}
+<div>
+    {% for post in posts  %}
+    {{title}}
+    <br>
+    <center><a class='text1' href='{% url "postsdetails" post.slug %}'>{{post.post_name}}</a></center>
+    <br>
+    <center><img src="{{post.image.url}}" alt="..." height='350px' width='500px'></center>
+    <h1 class='text' >{{post.extract}}</h1>
+    <hr>
+    {% endfor %}
+</div>
+<br>
+{% endblock %}

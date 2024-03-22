@@ -1,0 +1,23 @@
+.text{
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.text1{
+    font-size: 30px;
+    color: brown;
+}
+
+.img1{
+    text-align: center;
+}
+
+.img1:hover{
+    width: 530px;
+}
+
+
+a{
+    color: black;
+    font-size: medium;
+}

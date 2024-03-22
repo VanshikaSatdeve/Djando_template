@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block pagetitle %}Add Data in Form{% endblock  %}
+{% block cssstyle %}
+{% endblock  %}
+{% block content %}
+<div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ post_form }}
+        <br>
+        <br>
+        {{ post_by_form }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<br>
+{% endblock %}

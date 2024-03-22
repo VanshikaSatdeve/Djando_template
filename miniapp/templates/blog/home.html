@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block pagetitle %} {{post.post_name}}{% endblock  %}
+{% block cssstyle %}
+<link rel='stylesheet' href='{% static "blog/home.css" %}'>
+{% endblock %}
+
+{% block content %}
+ {% comment %} {% include "blog/includes/common2.html" %} {% endcomment %}
+{% csrf_token %}
+ <section>
+  <div style="background-color: burlywood; height:500px" >
+      <img style="margin-left:800px; "  src={% static "blog/images/logo.jpg" %} alt='img1' height='500px' width='700px' >
+      <span style="font-size:40px; font-weight:700; position:relative; top:-400px; " >Behind Every Temples...</span>
+      <h2 style="font-size:40px; font-weight:700; position:relative; top:-380px;  ">Explore the Beauty of Temple Architecture 
+        <br>
+        in INDIA....</h2>
+  </div>
+  <hr></hr>
+  <nav>
+    <center>
+    <a style='color:black; font-size:25px;' href="#type1">ABOUT US</a>
+    <a style='color:black; font-size:25px;' href="#type2">LATEST POST</a>
+    <a style='color:black; font-size:25px;' href='{% url "allposts" %}'>ALL POST</a>
+    </center>
+  </nav>
+  <hr></hr>
+</section>
+<section id='type1' >
+<center><h1 style='font-size:30px'><u> ABOUT US </u></h1></center>
+<p style='font-size: 20px'>
+  The architecture, style and beauty of temples in India are celebrated across the world. 
+  The extraordinary architecture of these ancient shrines attracts an increasing number of both national and international visitors every year. 
+  The origin of temple construction can be traced back to the pre-historic era when the reign of ancient rulers flourished in the country. 
+  Building beautiful temples started as a popular practice more than 2000 years ago in the country and 
+  with the evolution of time the concepts of architecture were influenced by different schools of construction. 
+  India as we know has a rich heritage of composite culture.
+  <br>
+  <br>
+  Temple architecture in India plays a crucial role in preserving and promoting Indian cultural heritage. These temple designs represent a
+   fusion of different architectural styles, from complex sculptures of temples in southern India to imposing arrows of temples in northern India. 
+   Local materials used in the temple structure, such as stone and wood, add authenticity and relation to the region's natural environment. 
+
+</p>
+
+</section>
+<hr></hr>
+<section id="type2">
+<center><h1 style='font-size:30px'><u> OUR LATEST POST </u></h1></center>
+<h1>
+  {% for post in posts %}
+
+    {% comment %} <h1 style='font-size:30px'> Title: {{post.title}}</h1> {% endcomment %}
+
+   
+    <center><h1 style='font-size:30px; color:brown;'>{{post.post_name}}</h1></center>
+    <br>
+    <center><img src="{{post.image.url}}" alt="..." height='350px' width='500px'></center>
+    {% comment %} <img class='img1' src="{% static 'blog/images/' %}{{ post.image.url }}" alt="..." height='350px' width='490px'> {% endcomment %}
+
+    <br>
+    <h2 style='font-size:25px;'>{{post.extract}}</h2>
+{% endfor %} 
+</h1>
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block pagetitle %} Home Page{% endblock  %}
+{% block cssstyle %}
+<link rel='stylesheet' href='{% static "blog/allpost.css" %}'>
+{% endblock %}
+
+{% block content %}
+<section>
+<a href='{% url "home"  %}'>Back To The Home Page</a>
+<h1 style='font-size:35px'> Data Added Successfully....</h1>
+
+</section>
+
+{% endblock %}
