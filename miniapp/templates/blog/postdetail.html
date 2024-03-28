@@ -11,13 +11,16 @@
 <section>
     <div>        
     <a href='{% url "home" %}'>Back To The Home Page</a>
+    
 <br>
 
 {% comment %} <h1>{{posts.post_name}}</h1> {% endcomment %}
 {% comment %} {% for post in posts  %} {% endcomment %}
 
 <h1 class='text1'><u>{{posts.post_name}}</u></h1>
+{% comment %} <h1>Posted By : {{posts.posted_by}}</h1> {% endcomment %}
 <br>
+
 <img src="{{posts.image.url}}" alt="..." height='350px' width='500px'>
 <img src="{{posts.imagesecond.url}}" alt="..." height='350px' width='490px'>
 <img src="{{posts.imagethird.url}}" alt="..." height='350px' width='490px'>

@@ -38,12 +38,14 @@ class CreatePostView(View):
              'post_by_form': post_by_form
             })
     
+    
+    
     def post(self, request):
         post_form = PostForm(request.POST, request.FILES)
         post_by_form = Post_ByForm(request.POST)
         if post_form.is_valid() and post_by_form.is_valid():
             post_by = post_by_form.save()
-            post = post_form.save(commit=False)
+            post = post_form.save()
             post.posted_by = post_by
             post.save()
             return HttpResponseRedirect('/success')
@@ -54,3 +56,9 @@ class success(ListView):
     model = Post
     context_object_name = 'posts'
     template_name='blog/successful.html'
+
+
+
+
+
+
